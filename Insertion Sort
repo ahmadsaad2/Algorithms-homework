@@ -1,0 +1,51 @@
+//ahmad saad - 12027912
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        int size;
+        int index;
+        int tmp;
+        int prev;
+    Scanner scan=new Scanner(System.in);
+        size=scan.nextInt();
+        int []array= new int[size];
+
+        for(int i=0;i<size;i++){
+            array[i]=scan.nextInt();
+        }
+
+        for(int j=1;j<size;j++){
+            index=j;
+            prev=j-1;
+
+            while(prev>=0 && array[prev]>array[index]){
+                tmp=array[prev];
+                array[prev] = array[index];
+                array[index] = tmp;
+                index--;
+                prev--;
+
+
+            }
+        }
+        System.out.print("[");
+        for(int k=0;k<size;k++){
+            System.out.print(array[k]);
+            if(k<size-1){
+                System.out.print(",");
+            }
+        }
+        System.out.print("]");
+
+        scan.close();
+
+
+
+    }
+}
